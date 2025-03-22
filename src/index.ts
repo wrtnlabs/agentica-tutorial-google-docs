@@ -19,8 +19,15 @@ export const agent = new Agentica({
     {
       name: "GoogleDocs Connector",
       protocol: "class",
-      application: typia.llm.application<GoogleDocsService, "chatgpt">(),
-      execute: new GoogleDocsService(),
+      application: typia.llm.application<
+        Omit<GoogleDocsService, "update">,
+        "chatgpt"
+      >(),
+      execute: new GoogleDocsService({
+        clientId: process.env.GOOGLE_DOCS_CLIENT_ID!,
+        clientSecret: process.env.GOOGLE_DOCS_CLIENT_SECRET!,
+        secret: process.env.GOOGLE_DOCS_REFRESH_TOKEN!,
+      }),
     },
   ],
 });
