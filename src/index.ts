@@ -24,9 +24,9 @@ export const agent = new Agentica({
         "chatgpt"
       >(),
       execute: new GoogleDocsService({
-        clientId: process.env.GOOGLE_DOCS_CLIENT_ID!,
-        clientSecret: process.env.GOOGLE_DOCS_CLIENT_SECRET!,
-        secret: process.env.GOOGLE_DOCS_REFRESH_TOKEN!,
+        googleClientId: process.env.GOOGLE_DOCS_CLIENT_ID!,
+        googleClientSecret: process.env.GOOGLE_DOCS_CLIENT_SECRET!,
+        googleRefreshToken: process.env.GOOGLE_DOCS_REFRESH_TOKEN!,
       }),
     },
   ],
